@@ -13,4 +13,7 @@ docker start containername
 # exec command
 docker exec -it ubuntudev21.10 /bin/bash
 
+# run GUI application
+export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+docker run -it -e DISPLAY=$IP:0  ubuntudev --name ubuntudev  /bin/bash
 ```
